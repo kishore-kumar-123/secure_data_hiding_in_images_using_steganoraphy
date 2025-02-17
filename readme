@@ -1,0 +1,67 @@
+I have created an encrypted image by using steganography
+
+the secret code: This is kishore's secret message :)
+the passkey: 123 
+
+Confidential Data Concealment in Images Using Steganography
+
+Overview
+This project illustrates **image-based steganography**, a method in which a secret message is embedded within an image at the pixel level. The hidden message can be later extracted using the correct passkey.
+ Features
+- Conceals a secret message within an image  
+- Encrypts the message by altering pixel values  
+- Decrypts the message only with the correct passkey  
+- Uses **OpenCV** for image manipulation  
+
+Project Structure
+Secure_Data_Concealment_In_Images_Using_Steganography
+- secure_data_concealment.py  # Main script
+-  Image.jpg                  # Original image (for encoding)
+-  encryptedImage.jpg         # Encrypted image (output)
+-  README.md                  # Documentation
+
+Installation & Setup
+1️ Prerequisites
+- Install Python (>=3.7)
+- Install OpenCV via pip:
+  pip install opencv-python
+  
+
+2️ Running the Script
+1. Place the image you want to use as the carrier (`Image.jpg`) in the project folder.
+2. Open a terminal and execute:
+   python secure_data_concealment.py
+3. Provide the secret message and passkey when prompted.
+4. The script will produce `encryptedImage.jpg` with the hidden message.
+5. Run the script again and input the correct passkey to extract the message.
+
+How it works
+
+1. Encoding:
+   - The script loads an image using OpenCV.
+   - Each character of the secret message is converted into pixel values.
+   - The pixel values are altered in a **non-sequential** pattern to embed the message.
+
+2. Decoding:
+   - If the right passkey is provided, the script reads the pixel values and reconstructs the hidden message.
+
+Limitations
+- Best suited for uncompressed image formats (e.g., `.png`, `.bmp`).  
+- JPEG compression may modify pixel values and hinder decryption.  
+- The message length is restricted by the size of the image.  
+
+Example Usage
+
+Encryption  
+Secret Code To Unlock: hello123  
+Enter The Passkey: secret12  
+The message is successfully concealed within `encryptedImage.jpg`.
+
+Decryption 
+Enter passcode for Decryption: secret123  
+Decrypted message: hello123  
+Message successfully retrieved!
+
+Security Considerations
+- The encryption used here is basic and does not employ advanced cryptographic methods.
+- For increased security, consider applying AES encryption on the message before embedding it in the image.
